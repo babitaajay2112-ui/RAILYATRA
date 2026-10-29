@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#073b32"><title>RailYatra — Train Tickets & Trips</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="top-strip"><div class="wrap strip-inner"><span>🇮🇳 Your journey, made simple</span><span>Demo platform · No real tickets issued</span></div></div>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home"><span class="brand-mark">र</span><span>Rail<span class="brand-green">Yatra</span><small>TRAVEL WITH EASE</small></span></a>
+      <button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button>
+      <nav id="nav"><a class="active" href="#home">Home</a><a href="#search">Book Tickets</a><a href="#trains">Train Schedule</a><a href="#myTrips">My Trips</a><a href="#pnr">PNR Status</a></nav>
+      <a class="login-btn" href="#myTrips">My Bookings <span>↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg-shape shape-a"></div><div class="hero-bg-shape shape-b"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-content">
+          <div class="pill"><span class="pulse"></span> PLAN. BOOK. TRAVEL.</div>
+          <h1>India is waiting.<br><span>Where to next?</span></h1>
+          <p>Discover routes, compare sample fares, and keep your travel plans organised — all in one place.</p>
+          <div class="hero-highlights"><span>✓ Easy train search</span><span>✓ Seat selection</span><span>✓ Trip tracking</span></div>
+        </div>
+        <div class="hero-illustration" aria-label="Decorative illustration of a train">
+          <div class="illustration-sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+          <div class="hill hill-one"></div><div class="hill hill-two"></div>
+          <div class="rail-line"></div>
+          <div class="illustration-train"><div class="engine-nose"></div><div class="coach coach-one"><i></i><i></i><i></i><b>र</b></div><div class="coach coach-two"><i></i><i></i><i></i></div><div class="train-wheel wheel-a"></div><div class="train-wheel wheel-b"></div><div class="train-wheel wheel-c"></div><div class="train-wheel wheel-d"></div></div>
+          <div class="floating-note note-top"><span>✦</span><div><b>New places</b><small>New memories</small></div></div>
+          <div class="floating-note note-bottom"><span>↗</span><div><b>Your next trip</b><small>Starts right here</small></div></div>
+        </div>
+      </div>
+      <div class="wrap booking-shell" id="search">
+        <div class="booking-tabs"><button class="booking-tab active" type="button">▰ &nbsp; Book a ticket</button><button class="booking-tab" type="button" id="jumpPnr">⌕ &nbsp; Check PNR</button><span class="demo-label">SAMPLE DATA</span></div>
+        <form id="searchForm" class="search-form">
+          <label class="search-field"><span>FROM</span><div class="field-content"><span class="field-symbol">●</span><select id="fromStation" required><option value="New Delhi">New Delhi (NDLS)</option><option value="Mumbai">Mumbai Central (MMCT)</option><option value="Lucknow">Lucknow (LKO)</option><option value="Jaipur">Jaipur (JP)</option><option value="Agra">Agra Cantt (AGC)</option><option value="Kanpur">Kanpur Central (CNB)</option><option value="Varanasi">Varanasi (BSB)</option><option value="Kolkata">Kolkata (KOAA)</option><option value="Bengaluru">Bengaluru (SBC)</option><option value="Chennai">Chennai Central (MAS)</option><option value="Hyderabad">Hyderabad (HYB)</option><option value="Amritsar">Amritsar (ASR)</option><option value="Bhopal">Bhopal (BPL)</option></select></div></label>
+          <button type="button" id="swapStations" class="swap" aria-label="Swap stations" title="Swap stations">⇄</button>
+          <label class="search-field"><span>TO</span><div class="field-content"><span class="field-symbol destination">●</span><select id="toStation" required><option value="Mumbai">Mumbai Central (MMCT)</option><option value="New Delhi">New Delhi (NDLS)</option><option value="Lucknow">Lucknow (LKO)</option><option value="Jaipur">Jaipur (JP)</option><option value="Agra">Agra Cantt (AGC)</option><option value="Kanpur">Kanpur Central (CNB)</option><option value="Varanasi">Varanasi (BSB)</option><option value="Kolkata">Kolkata (KOAA)</option><option value="Bengaluru">Bengaluru (SBC)</option><option value="Chennai">Chennai Central (MAS)</option><option value="Hyderabad">Hyderabad (HYB)</option><option value="Amritsar">Amritsar (ASR)</option><option value="Bhopal">Bhopal (BPL)</option></select></div></label>
+          <label class="search-field"><span>JOURNEY DATE</span><div class="field-content"><span class="field-symbol">▦</span><input id="journeyDate" type="date" required></div></label>
+          <label class="search-field"><span>TRAVEL CLASS</span><div class="field-content"><span class="field-symbol">▤</span><select id="travelClass"><option value="SL">Sleeper (SL)</option><option value="3A">AC 3 Tier (3A)</option><option value="2A">AC 2 Tier (2A)</option><option value="1A">AC First Class (1A)</option><option value="CC">Chair Car (CC)</option><option value="2S">Second Sitting (2S)</option></select></div></label>
+          <button class="search-submit" type="submit">Search trains <span>→</span></button>
+        </form>
+        <p class="demo-disclaimer">ⓘ This is a student demo. Train times, fares, seat availability and PNRs are not connected to IRCTC or live railway systems.</p>
+      </div>
+    </section>
+
+    <section class="content-section wrap" id="trains">
+      <div class="section-head"><div><div class="eyebrow">YOUR ROUTE, YOUR WAY</div><h2>Explore trains</h2><p id="resultSubtitle">Search a route or browse sample train options.</p></div><label class="sort-control">Sort by <select id="sortBy"><option value="departure">Departure</option><option value="price">Lowest fare</option><option value="duration">Duration</option></select></label></div>
+      <div class="filter-bar"><button class="filter-chip active" data-filter="all">All departures</button><button class="filter-chip" data-filter="morning">Morning</button><button class="filter-chip" data-filter="day">Afternoon</button><button class="filter-chip" data-filter="night">Night</button><span id="trainCount"></span></div>
+      <div id="trainResults" class="train-list"></div>
+      <div id="emptyResults" class="empty hidden"><div class="empty-emoji">🚉</div><h3>No sample trains found</h3><p>Try another route or travel class.</p></div>
+    </section>
+
+    <section class="routes-band"><div class="wrap"><div class="section-head"><div><div class="eyebrow">GET INSPIRED</div><h2>Popular journeys</h2><p>Choose a route to fill the search form.</p></div></div><div class="popular-routes">
+      <button class="route-tile" data-from="New Delhi" data-to="Mumbai"><span class="route-emoji">🌆</span><b>Delhi → Mumbai</b><small>Capital to the coast</small><span class="route-arrow">↗</span></button>
+      <button class="route-tile" data-from="New Delhi" data-to="Lucknow"><span class="route-emoji">🏛️</span><b>Delhi → Lucknow</b><small>Culture & cuisine</small><span class="route-arrow">↗</span></button>
+      <button class="route-tile" data-from="New Delhi" data-to="Jaipur"><span class="route-emoji">🏰</span><b>Delhi → Jaipur</b><small>Royal Rajasthan</small><span class="route-arrow">↗</span></button>
+      <button class="route-tile" data-from="Mumbai" data-to="Chennai"><span class="route-emoji">🌴</span><b>Mumbai → Chennai</b><small>Explore the south</small><span class="route-arrow">↗</span></button>
+    </div></div></section>
+
+    <section class="content-section wrap" id="myTrips"><div class="section-head"><div><div class="eyebrow">YOUR TRAVEL DESK</div><h2>My bookings</h2><p>Demo tickets saved in this browser only.</p></div><button id="refreshBookings" class="outline-btn">Refresh ↻</button></div><div id="bookingList" class="booking-grid"></div><div id="noBookings" class="empty"><div class="empty-emoji">🎟️</div><h3>Your trips will appear here</h3><p>Book a demo seat from the train list to get started.</p></div></section>
+
+    <section class="pnr-area" id="pnr"><div class="wrap pnr-panel"><div class="pnr-badge">⌕</div><div class="pnr-text"><div class="eyebrow">TRIP TRACKER</div><h2>Check PNR status</h2><p>Look up a demo PNR generated by this app.</p></div><form id="pnrForm" class="pnr-form"><input id="pnrInput" placeholder="Enter demo PNR number" maxlength="10" inputmode="numeric" required><button class="search-submit">Check status →</button></form><div id="pnrResult" class="pnr-result hidden" aria-live="polite"></div></div></section>
+
+    <section class="wrap benefits"><div class="eyebrow">BUILT FOR A SMOOTHER TRIP</div><h2>Travel planning, without the fuss.</h2><div class="benefit-grid"><article><span class="benefit-icon green">⌕</span><h3>Search your way</h3><p>Filter sample departures and compare fares for the class you prefer.</p></article><article><span class="benefit-icon gold">▦</span><h3>Choose your seat</h3><p>Pick an available demo seat and enter passenger details to reserve it locally.</p></article><article><span class="benefit-icon blue">✓</span><h3>Keep trips together</h3><p>Review or cancel demo bookings and check their PNR status.</p></article></div></section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><a class="brand footer-brand" href="#home"><span class="brand-mark">र</span><span>Rail<span class="brand-green">Yatra</span><small>TRAVEL WITH EASE</small></span></a><p>Made with HTML, CSS & JavaScript for a student project.</p><span>Demo only · No real ticket issued</span></div></footer>
+
+  <div class="modal-overlay hidden" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><button id="closeModal" class="close-modal" aria-label="Close">×</button><div class="eyebrow">RESERVE A DEMO SEAT</div><h2 id="modalTitle">Passenger details</h2><p id="modalTrainInfo" class="modal-info"></p><form id="bookingForm"><input type="hidden" id="selectedTrainId"><div class="passenger-fields"><label>Passenger name<input id="passengerName" required maxlength="70" placeholder="Full name"></label><label>Age<input id="passengerAge" required type="number" min="1" max="120" placeholder="Age"></label><label>Gender<select id="passengerGender" required><option value="">Choose</option><option>Female</option><option>Male</option><option>Other</option><option>Prefer not to say</option></select></label><label>Preference<select id="seatPreference"><option>Any</option><option>Window</option><option>Aisle</option></select></label></div><div class="seat-heading"><b>Select your seat</b><span>Available demo seats are green</span></div><div id="seatGrid" class="seat-grid"></div><div class="fare-row"><span>Sample fare / passenger</span><b id="modalFare">₹0</b></div><p class="privacy-note">Demo only. Avoid entering sensitive personal information.</p><button class="search-submit full">Confirm demo booking →</button></form></div></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="style.js"></script>
+</body></html>
